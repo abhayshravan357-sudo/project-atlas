@@ -1,6 +1,6 @@
 # Agent Dashboard — Project Atlas
 
-Current project phase: Phase 2 — Documentation Foundation → Phase 3 — Architecture & Technical Decisions
+Current project phase: Phase 6 — Validation & Improvement (Planned)
 Manager branch: main
 
 | Agent ID | Agent | Specialization | Git branch | Git worktree | Start status | Progress | Deliverables | Completion | Review | Report |
