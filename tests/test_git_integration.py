@@ -40,6 +40,14 @@ def _make_temp_repo() -> tuple[Path, Path]:
     return repo, wt_parent
 
 
+def _setup_domain(mgr: WorktreeManager, domain: str) -> None:
+    """Create a branch and worktree for a domain (mirrors orchestrator delegate)."""
+    branch = f"research/{domain}"
+    if not mgr.branch_exists(branch):
+        mgr.create_branch(branch, from_branch="main")
+    mgr.create_worktree(domain, branch)
+
+
 # ---------------------------------------------------------------------------
 # WorktreeManager tests against real git
 # ---------------------------------------------------------------------------
@@ -60,10 +68,9 @@ def test_create_branch_and_worktree() -> None:
     repo, wt_parent = _make_temp_repo()
     mgr = WorktreeManager(repo, wt_parent)
 
-    path = mgr.create_worktree("fundamentals", "research/fundamentals")
+    _setup_domain(mgr, "fundamentals")
 
-    assert path == wt_parent / "fundamentals"
-    assert path.is_dir()
+    assert (wt_parent / "fundamentals").is_dir()
     assert mgr.worktree_branch("fundamentals") == "research/fundamentals"
 
 
@@ -73,16 +80,16 @@ def test_branch_created_from_main_not_current() -> None:
 
     # Create and checkout a non-main branch to prove create_branch uses main.
     mgr._run(["checkout", "-b", "side"], cwd=repo)
-    mgr.create_worktree("arch", "research/architecture")
-    assert mgr.worktree_branch("arch") == "research/architecture"
+    _setup_domain(mgr, "architecture")
+    assert mgr.worktree_branch("architecture") == "research/architecture"
 
 
 def test_worktrees_are_isolated() -> None:
     repo, wt_parent = _make_temp_repo()
     mgr = WorktreeManager(repo, wt_parent)
 
-    mgr.create_worktree("a", "research/a")
-    mgr.create_worktree("b", "research/b")
+    _setup_domain(mgr, "a")
+    _setup_domain(mgr, "b")
 
     (wt_parent / "a" / "file-a.txt").write_text("a")
     (wt_parent / "b" / "file-b.txt").write_text("b")
@@ -96,8 +103,8 @@ def test_list_worktrees_returns_created_paths() -> None:
     repo, wt_parent = _make_temp_repo()
     mgr = WorktreeManager(repo, wt_parent)
 
-    mgr.create_worktree("a", "research/a")
-    mgr.create_worktree("b", "research/b")
+    _setup_domain(mgr, "a")
+    _setup_domain(mgr, "b")
 
     paths = mgr.list_worktrees()
     assert str(wt_parent / "a") in paths
@@ -108,7 +115,7 @@ def test_create_worktree_rejects_existing() -> None:
     repo, wt_parent = _make_temp_repo()
     mgr = WorktreeManager(repo, wt_parent)
 
-    mgr.create_worktree("a", "research/a")
+    _setup_domain(mgr, "a")
     try:
         mgr.create_worktree("a", "research/a")
         assert False, "Expected FileExistsError"
@@ -120,7 +127,7 @@ def test_remove_worktree() -> None:
     repo, wt_parent = _make_temp_repo()
     mgr = WorktreeManager(repo, wt_parent)
 
-    mgr.create_worktree("a", "research/a")
+    _setup_domain(mgr, "a")
     assert (wt_parent / "a").is_dir()
     mgr.remove_worktree("a")
     assert not (wt_parent / "a").exists()
@@ -130,7 +137,7 @@ def test_remove_worktree_with_force() -> None:
     repo, wt_parent = _make_temp_repo()
     mgr = WorktreeManager(repo, wt_parent)
 
-    mgr.create_worktree("a", "research/a")
+    _setup_domain(mgr, "a")
     (wt_parent / "a" / "untracked.txt").write_text("dirty")
     mgr.remove_worktree("a", force=True)
     assert not (wt_parent / "a").exists()
@@ -145,10 +152,10 @@ def test_invalid_repository_raises() -> None:
         mgr = WorktreeManager(not_a_repo, wt_parent)
 
         try:
-            mgr.create_worktree("a", "research/a")
+            mgr.create_branch("research/a", from_branch="main")
             assert False, "Expected an error from git"
-        except Exception:
-            pass  # git CLI fails because not_a_repo is not a git repository
+        except subprocess.CalledProcessError:
+            pass
 
 
 # ---------------------------------------------------------------------------
@@ -173,7 +180,7 @@ def test_cleanup_after_failure() -> None:
     repo, wt_parent = _make_temp_repo()
     mgr = WorktreeManager(repo, wt_parent)
 
-    mgr.create_worktree("a", "research/a")
+    _setup_domain(mgr, "a")
     mgr.remove_worktree("a", force=True)
     assert not (wt_parent / "a").exists()
 
@@ -183,7 +190,7 @@ def test_main_worktree_not_removed() -> None:
     mgr = WorktreeManager(repo, wt_parent)
 
     # Creating worktrees must not touch the main checkout.
-    mgr.create_worktree("a", "research/a")
+    _setup_domain(mgr, "a")
     assert (repo / ".git").is_dir()
     assert mgr.current_branch() == "main"
     mgr.remove_worktree("a", force=True)
