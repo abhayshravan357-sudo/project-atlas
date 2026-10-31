@@ -1,39 +1,45 @@
-# Project Atlas — CLI Interface
+# Project Atlas — MCP Servers
 
-This directory enhances the command-line interface for Project Atlas using
-Click. It builds on the core orchestrator implemented in D-04.
+This directory contains MCP (Model Context Protocol) servers that expose tools
+to Atlas agents.  Servers use stdio JSON-RPC 2.0 and require no external
+``mcp`` package (standard library only).
 
-## Commands
+## Servers
+
+| Server | Purpose | Tools |
+|--------|---------|-------|
+| ``filesystem_server.py`` | Read/write files, list directories | read_file, write_file, list_directory |
+| ``git_server.py`` | Read-only git operations | git_branch, git_status, git_diff |
+
+## Security model
+
+- **Filesystem server** is scoped to a single root directory (the agent's assigned worktree). Attempts to read/write outside the root are rejected.
+- **Git server** is read-only: agents can inspect branches, status, and diffs, but cannot commit or push. Commit remains the Manager Agent's responsibility.
+
+## How to run
 
 ```bash
-# Run a research cycle
-python -m atlas.cli run-cycle "Compare LangGraph vs ADK" \
-  --domains fundamentals,technology-landscape
+# Filesystem server (scoped to a worktree)
+python -m atlas.mcp.filesystem_server /path/to/worktree
 
-# Show current state
-python -m atlas.cli status
-
-# Record a review decision
-python -m atlas.cli review approve
-
-# Commit approved branches into main
-python -m atlas.cli commit
+# Git server (scoped to a repo)
+python -m atlas.mcp.git_server /path/to/repo
 ```
 
-## How to run tests
+Each server reads JSON-RPC requests from stdin and writes responses to stdout.
+
+## How to test
 
 ```bash
 pytest
 ```
 
-## Relationship to D-04
+## Relationship to D-02/D-03
 
-D-04 created the core orchestrator (Orchestrator, ResearchState, WorktreeManager).
-D-05 adds a Click-based CLI on top of it. The orchestrator logic is unchanged;
-the CLI is a thin interface layer.
+D-02 selected MCP for agent tool access. D-03 designed the system architecture with MCP servers as the tool layer. D-07 implements the first two servers (filesystem, git).
 
 ## Next steps
 
-- Persist ResearchState to disk so review/commit decisions survive across CLI invocations.
-- Wire the review gate into the orchestrator's LangGraph interrupt (future migration).
-- Add more subcommands (worktree list, branch list, etc.).
+- Add an LLM provider server (llm_completion tool).
+- Add a knowledge-base server (kb_search, kb_get).
+- Wire servers into the orchestrator via an MCP client (LangGraph migration).
