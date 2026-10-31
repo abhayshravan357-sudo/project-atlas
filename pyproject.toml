@@ -1,0 +1,13 @@
+[project]
+name = "project-atlas"
+version = "0.1.0"
+description = "Multi-agent research and exploration orchestrator"
+requires-python = ">=3.10"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
