@@ -43,9 +43,14 @@ Important architectural and technical decisions.
 **Evidence:** Owner directive — contribution activity and quality are explicit parallel objectives alongside building the CLI tool and knowledge base.
 
 ## D-009 | 2026-10-31 | Independent AI subagent delegation is available via `task` tool
-**Reasoning:** Two real work assignments were successfully executed by independent subagents (file reading and file creation). Earlier aborts were transient, not a capability limitation.
+**Reasoning:** Two real work assignments were successfully executed by independent subagents (file reading and file creation both executed successfully). Earlier aborts were transient, not a capability limitation.
 **Alternatives:** Manual-manager execution only (rejected — subagent delegation works).
-**Evidence:** Two `task` tool calls returned successful results with verified file output.
+**Evidence:** Two `task` tool calls returned successful results with verified file output; Worker A produced an 86-line module inspection, Worker B produced 3 passing tests.
+
+## D-010 | 2026-10-31 | Decision: REAL DELEGATION VERIFIED
+**Reasoning:** Phase 6.2 controlled execution test confirmed two independent agents working on separate branches/worktrees, returning actual deliverables, with Manager review and integration.
+**Alternatives:** Manual-manager fallback (not needed — delegation works).
+**Evidence:** Worker A (agent-test-a, commit 29485fb), Worker B (agent-test-b, commit 3e747dd), both merged to main, 36 tests passing, 83.71% coverage.
 
 ## Pending Decisions
 

@@ -27,15 +27,19 @@ Columns:
 | 2026-10-31 | test | tests/test_quality_audit.py | No failure-path or integration coverage existed | Added failure-path tests (blocked commits, empty domains, invalid repo), CLI integration tests, MCP integration tests (initialize/tools-list/unknown-tool) | — | phase6.3-quality-audit merge | 9 tests pass | How to test CLI invocation and MCP JSON-RPC round-trips |
 
 | 2026-10-31 | investigation | docs/09-management/, tests/ | Subagent delegation appeared unavailable | Tested `task` tool with real work assignments (file read, file write); both succeeded. Earlier aborts were transient. | — | — | 2 test delegations confirmed | Subagent delegation via `task` tool is available; no manual-manager fallback needed |
+| 2026-10-31 | investigation | docs/03-architecture/agent-execution-architecture.md, docs/04-implementation/delegation-integration.md, docs/06-testing/delegation-test-cases.md, docs/09-management/delegation-investigation.md | Need to verify real agent delegation works | Delegated Worker A (orchestrator inspection) and Worker B (state module test) to independent subagents on separate branches/worktrees; both completed successfully; work merged to main | — | phase6.2-delegation merge | Worker A: 86-line inspection doc; Worker B: 3 tests passing | Independent agent delegation via `task` tool is verified and reliable |
+| 2026-10-31 | feature | docs/04-implementation/delegation-integration.md | Need to document how agent delegation integrates into Atlas | Documented integration points, worker assignment template, verified execution, manager review checklist | — | phase6.2-delegation merge | 36 tests pass after integration | How to delegate work to independent agents via branches and worktrees |
+| 2026-10-31 | test | docs/06-testing/delegation-test-cases.md | Need test cases for agent delegation | Documented 4 test cases (DT-01 through DT-04) covering worker execution, worktree isolation, and manager integration | — | phase6.2-delegation merge | All test cases verified against actual worker results | How to validate agent delegation |
 
 ## Contribution Totals (as of last update)
 
-- Total contribution entries: 9
+- Total contribution entries: 12
 - Feature commits: 3 (orchestrator, CLI, MCP servers)
 - Documentation commits: 3 (vision/requirements, technology, architecture)
+- Investigation commits: 1 (agent delegation investigation)
 - CI commits: 1
-- Test commits: 2 (integration, quality audit)
-- Tests added: 23 new (33 total)
+- Test commits: 3 (integration, quality audit, delegation test)
+- Tests added: 26 new (36 total)
 - Coverage: 83.71%
 
 ## How to Use This Register

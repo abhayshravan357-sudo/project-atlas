@@ -57,10 +57,14 @@ Project Atlas is guided by four parallel objectives:
 - Quality audit tests: `tests/test_quality_audit.py` (9 tests)
 - 33 tests pass; coverage 83.71% (>80% threshold)
 
-### Phase 6.2 — Real Agent Delegation Investigation (In Progress)
-- Subagent delegation confirmed working via `task` tool (file read and file write both executed successfully)
-- Earlier aborts were transient, not a capability limitation
-- Ready to delegate Phase 6.3+ assignments to independent subagents
+### Phase 6.2 — Real Agent Delegation Investigation (Complete)
+
+- Subagent delegation confirmed working via `task` tool (two workers executed successfully on separate branches/worktrees)
+- Worker A: orchestrator module inspection (86-line doc) — merged to main
+- Worker B: `ResearchState` independent test (3 tests passing) — merged to main
+- Both workers on separate branches (agent-test-a, agent-test-b) and worktrees
+- Manager reviewed, committed, and merged both deliverables
+- Decision: A. REAL DELEGATION VERIFIED (see docs/09-management/delegation-investigation.md)
 
 ### Phase 6.3 — LLM-as-Judge Review Gate (Planned)
 - Define evaluation rubric
@@ -78,8 +82,7 @@ See `docs/09-management/contribution-register.md` for the contribution register 
 
 ## Next Immediate Steps
 
-1. Phase 6.2 — Investigate real agent delegation (why `task` aborts on real assignments)
-2. Phase 6.3 — Implement LLM-as-judge review gate
-3. Phase 6.4 — Architecture commitment / go-no-go decision
-4. Continue Phase 5-style incremental feature development with tests and documentation
-5. Push to GitHub (owner authorization required) to begin public contribution tracking
+1. Phase 6.3 — Implement LLM-as-judge review gate
+2. Phase 6.4 — Architecture commitment / go-no-go decision
+3. Continue Phase 5-style incremental feature development with tests and documentation
+4. Push to GitHub (owner authorization required) to begin public contribution tracking
