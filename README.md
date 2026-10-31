@@ -1,46 +1,39 @@
-# Project Atlas — Core Orchestrator
+# Project Atlas — CLI Interface
 
-This directory contains the initial implementation of the Atlas research-cycle
-orchestrator.  It is a dependency-free Python package (standard library only)
-that demonstrates the `plan -> delegate -> investigate -> report -> review ->
-synthesize -> commit -> reassess` cycle.
+This directory enhances the command-line interface for Project Atlas using
+Click. It builds on the core orchestrator implemented in D-04.
 
-## What this implements
-
-- `src/atlas/orchestrator.py` — `Orchestrator` class driving the cycle.
-- `src/atlas/state.py` — `ResearchState`, the shared cycle state.
-- `src/atlas/worktree_manager.py` — Git worktree creation per domain.
-- `src/atlas/cli.py` — minimal command-line entry point.
-- `tests/test_orchestrator.py` — unit tests.
-
-## What it does NOT do yet
-
-- No LLM calls (no `anthropic`, `openai`, or other provider SDK).
-- No LangGraph (planned upgrade — see `docs/02-technology/frameworks.md`).
-- No MCP servers (planned — see `docs/02-technology/technology-stack.md`).
-- No real worker agents (placeholder reports are generated).
-
-## How to run
+## Commands
 
 ```bash
-# From the Atlas repository root
-python -m atlas.cli "Compare LangGraph vs ADK for agent orchestration" \
-  --domains fundamentals,technology-landscape,architecture \
-  --repo . \
-  --worktree-parent ../project-atlas-worktrees \
-  --knowledge-base docs/knowledge-base
+# Run a research cycle
+python -m atlas.cli run-cycle "Compare LangGraph vs ADK" \
+  --domains fundamentals,technology-landscape
+
+# Show current state
+python -m atlas.cli status
+
+# Record a review decision
+python -m atlas.cli review approve
+
+# Commit approved branches into main
+python -m atlas.cli commit
 ```
 
-## How to test
+## How to run tests
 
 ```bash
 pytest
 ```
 
+## Relationship to D-04
+
+D-04 created the core orchestrator (Orchestrator, ResearchState, WorktreeManager).
+D-05 adds a Click-based CLI on top of it. The orchestrator logic is unchanged;
+the CLI is a thin interface layer.
+
 ## Next steps
 
-- Replace placeholder investigation with real worker research (D-05 CLI, D-07 MCP).
-- Migrate the hand-rolled state machine to LangGraph for checkpoints and
-  native human-in-the-loop interrupts.
-- Add the review-gate interrupt so the Manager Agent can APPROVE / REVISE /
-  REJECT before merging.
+- Persist ResearchState to disk so review/commit decisions survive across CLI invocations.
+- Wire the review gate into the orchestrator's LangGraph interrupt (future migration).
+- Add more subcommands (worktree list, branch list, etc.).

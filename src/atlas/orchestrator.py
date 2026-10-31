@@ -64,15 +64,16 @@ class Orchestrator:
         state.current_phase = "delegate"
 
     def _delegate(self, state: ResearchState) -> None:
-        """Create a Git branch and worktree for each domain."""
-        current = self.worktree_manager.current_branch()
-        if current != "main":
-            raise RuntimeError(f"Must run from main branch, currently on {current!r}")
+        """Create a Git branch and worktree for each domain.
 
+        Branches are created from ``main`` (the approved base) regardless of
+        which branch the CLI happens to run from, so the orchestrator can be
+        invoked from any worktree.
+        """
         for domain in state.domains:
             branch = f"research/{domain}"
             if not self.worktree_manager.branch_exists(branch):
-                self.worktree_manager.create_branch(branch)
+                self.worktree_manager.create_branch(branch, from_branch="main")
             worktree_path = self.worktree_manager.create_worktree(domain, branch)
             state.worktrees[domain] = str(worktree_path)
             state.log(f"Delegate: {domain} -> branch {branch}, worktree {worktree_path}")
