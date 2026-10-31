@@ -5,10 +5,9 @@ All notable changes to Project Atlas.
 ## [Unreleased]
 
 ### Added
-- Research documentation (cycles 1-3): fundamentals, technology landscape, architecture, real-world applications, academic literature, innovation, critical analysis
-- Cycle 2 deep dives: architecture, technology comparison, integration protocols, evaluation framework, cost & feasibility
-- Cycle 3 designs: prototype design, evaluation rubric, MCP integration, cost validation
 - Management docs: agent dashboard, task register, development roadmap, decisions, changelog
+- Documentation foundation (D-01): project vision, problem definition, goals, scope, features, glossary, functional requirements, non-functional requirements, user stories, acceptance criteria
+- Technology stack (D-02): technology-stack, programming-languages, frameworks, libraries-and-packages, development-tools, technology-selection, alternatives
 
 ### Changed
 - None yet

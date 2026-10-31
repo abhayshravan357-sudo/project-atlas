@@ -11,8 +11,8 @@ Manager branch: main
 | Branch | Worktree | Purpose | Status |
 |--------|----------|---------|--------|
 | main | /home/abhaysawant/Downloads/expermint/atlast | Primary branch, management docs | Active |
-| docs/foundation | ../project-atlas-worktrees/docs-foundation | Documentation structure, vision, requirements | Not started |
-| tech/stack | ../project-atlas-worktrees/tech-stack | Technology selection, stack documentation | Not started |
+| docs/foundation | ../project-atlas-worktrees/docs-foundation | Documentation structure, vision, requirements | Merged to main |
+| tech/stack | ../project-atlas-worktrees/tech-stack | Technology selection, stack documentation | Merged to main |
 | arch/system | ../project-atlas-worktrees/arch-system | System architecture, component design | Not started |
 | impl/core | ../project-atlas-worktrees/impl-core | Core orchestrator implementation | Not started |
 | impl/cli | ../project-atlas-worktrees/impl-cli | CLI interface implementation | Not started |

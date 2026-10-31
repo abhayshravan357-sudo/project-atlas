@@ -10,8 +10,6 @@ None yet.
 
 | ID | Domain | Agent | Branch | Worktree | Priority | Status |
 |----|--------|-------|--------|----------|----------|--------|
-| D-01 | Documentation Foundation | Documentation Agent | docs/foundation | ../project-atlas-worktrees/docs-foundation | high | pending |
-| D-02 | Technology Stack | Technology Agent | tech/stack | ../project-atlas-worktrees/tech-stack | high | pending |
 | D-03 | System Architecture | Architecture Agent | arch/system | ../project-atlas-worktrees/arch-system | high | pending |
 | D-04 | Core Orchestrator | Backend Agent | impl/core | ../project-atlas-worktrees/impl-core | high | pending |
 | D-05 | CLI Interface | Backend Agent | impl/cli | ../project-atlas-worktrees/impl-cli | medium | pending |
@@ -20,7 +18,10 @@ None yet.
 
 ## Completed Tasks
 
-None yet.
+| ID | Domain | Agent | Branch | Worktree | Priority | Status | Review |
+|----|--------|-------|--------|----------|----------|--------|--------|
+| D-01 | Documentation Foundation | Documentation Agent | docs/foundation | ../project-atlas-worktrees/docs-foundation | high | complete | APPROVED |
+| D-02 | Technology Stack | Technology Agent | tech/stack | ../project-atlas-worktrees/tech-stack | high | complete | APPROVED |
 
 ## Blocked Tasks
 
