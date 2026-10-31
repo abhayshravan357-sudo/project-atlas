@@ -37,6 +37,11 @@ Important architectural and technical decisions.
 **Alternatives:** Multiple clones, container per agent.
 **Evidence:** Cycle 1-3 research; git worktree documentation.
 
+## D-008 | 2026-10-31 | GitHub contribution growth as explicit secondary objective
+**Reasoning:** The project should demonstrate consistent engineering growth on GitHub, not just build software. Contribution activity must emerge from meaningful engineering work — not empty commits.
+**Alternatives:** Build silently without tracking contributions; manufacture activity with empty commits (rejected).
+**Evidence:** Owner directive — contribution activity and quality are explicit parallel objectives alongside building the CLI tool and knowledge base.
+
 ## Pending Decisions
 
 - Exact CLI command structure (to be decided by CLI Agent).
