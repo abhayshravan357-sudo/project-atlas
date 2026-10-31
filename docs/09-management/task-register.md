@@ -16,6 +16,9 @@ All active, completed, pending, blocked, and rejected development tasks.
 | D-05 | CLI Interface | Backend Agent | impl/cli | ../project-atlas-worktrees/impl-cli | medium | complete | APPROVED |
 | D-06 | Test Strategy | QA Agent | test/qa | ../project-atlas-worktrees/test-qa | medium | complete | APPROVED |
 | D-07 | MCP Servers | Integration Agent | mcp/servers | ../project-atlas-worktrees/mcp-servers | medium | complete | APPROVED |
+| P6-01 | CI and Coverage | CI Agent | phase6.1-ci | ../project-atlas-worktrees/phase6-ci | high | complete | APPROVED |
+| P6-02 | Git Integration Testing | Git Testing Agent | phase6.2-git-testing | ../project-atlas-worktrees/phase6-git-testing | high | complete | APPROVED |
+| P6-03 | Quality Audit | QA Agent | phase6.3-quality-audit | /tmp/atlast-wt/phase6-quality-audit | high | complete | APPROVED |
 
 ## Blocked Tasks
 
@@ -30,7 +33,10 @@ None yet.
 - One task per domain; one agent per task.
 - Each task gets a dedicated branch and worktree.
 - Workers produce deliverables; Manager reviews and commits.
-- Dependencies: D-01 before D-02/D-03; D-03 before D-04; D-04 before D-05/D-06/D-07.
+- All development phases (D-01 through D-07) complete.
+- Phase 6.1 validation foundation complete: CI pipeline, coverage reporting, Git integration tests, failure-path tests.
+- 33 tests pass; coverage 83.71% (>80% threshold).
+- Next: Phase 6.2 — real agent-delegation investigation.
 - All development phases complete: documentation foundation, technology stack, architecture, core orchestrator, CLI, test strategy, MCP servers.
 
 ## Blocked Tasks

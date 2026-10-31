@@ -4,3 +4,6 @@ __pycache__/
 .mypy_cache/
 .DS_Env
 .env
+.coverage/
+htmlcov/
+.coverage
