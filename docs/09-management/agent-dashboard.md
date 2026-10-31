@@ -13,8 +13,8 @@ Manager branch: main
 | main | /home/abhaysawant/Downloads/expermint/atlast | Primary branch, management docs | Active |
 | docs/foundation | ../project-atlas-worktrees/docs-foundation | Documentation structure, vision, requirements | Merged to main |
 | tech/stack | ../project-atlas-worktrees/tech-stack | Technology selection, stack documentation | Merged to main |
-| arch/system | ../project-atlas-worktrees/arch-system | System architecture, component design | Not started |
-| impl/core | ../project-atlas-worktrees/impl-core | Core orchestrator implementation | Not started |
+| arch/system | ../project-atlas-worktrees/arch-system | System architecture, component design | Merged to main |
+| impl/core | ../project-atlas-worktrees/impl-core | Core orchestrator implementation | In Progress |
 | impl/cli | ../project-atlas-worktrees/impl-cli | CLI interface implementation | Not started |
 | test/qa | ../project-atlas-worktrees/test-qa | Test strategy, test cases, validation | Not started |
 | mcp/servers | ../project-atlas-worktrees/mcp-servers | MCP filesystem + git servers | Not started |

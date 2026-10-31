@@ -8,6 +8,7 @@ All notable changes to Project Atlas.
 - Management docs: agent dashboard, task register, development roadmap, decisions, changelog
 - Documentation foundation (D-01): project vision, problem definition, goals, scope, features, glossary, functional requirements, non-functional requirements, user stories, acceptance criteria
 - Technology stack (D-02): technology-stack, programming-languages, frameworks, libraries-and-packages, development-tools, technology-selection, alternatives
+- System architecture (D-03): system-architecture, component-architecture, backend-architecture, data-architecture, api-design, frontend-architecture
 
 ### Changed
 - None yet
