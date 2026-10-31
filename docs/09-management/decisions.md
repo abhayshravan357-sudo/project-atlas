@@ -42,6 +42,11 @@ Important architectural and technical decisions.
 **Alternatives:** Build silently without tracking contributions; manufacture activity with empty commits (rejected).
 **Evidence:** Owner directive — contribution activity and quality are explicit parallel objectives alongside building the CLI tool and knowledge base.
 
+## D-009 | 2026-10-31 | Independent AI subagent delegation is available via `task` tool
+**Reasoning:** Two real work assignments were successfully executed by independent subagents (file reading and file creation). Earlier aborts were transient, not a capability limitation.
+**Alternatives:** Manual-manager execution only (rejected — subagent delegation works).
+**Evidence:** Two `task` tool calls returned successful results with verified file output.
+
 ## Pending Decisions
 
 - Exact CLI command structure (to be decided by CLI Agent).

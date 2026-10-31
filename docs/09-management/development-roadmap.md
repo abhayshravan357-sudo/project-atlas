@@ -57,11 +57,10 @@ Project Atlas is guided by four parallel objectives:
 - Quality audit tests: `tests/test_quality_audit.py` (9 tests)
 - 33 tests pass; coverage 83.71% (>80% threshold)
 
-### Phase 6.2 — Real Agent Delegation Investigation (Planned)
-- Determine why `task` subagent spawning aborts for real assignments
-- Test actual IDE native agent-delegation mechanism
-- Verify independent agent execution and worktree assignment
-- If unavailable, document manual-manager fallback
+### Phase 6.2 — Real Agent Delegation Investigation (In Progress)
+- Subagent delegation confirmed working via `task` tool (file read and file write both executed successfully)
+- Earlier aborts were transient, not a capability limitation
+- Ready to delegate Phase 6.3+ assignments to independent subagents
 
 ### Phase 6.3 — LLM-as-Judge Review Gate (Planned)
 - Define evaluation rubric

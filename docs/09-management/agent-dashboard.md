@@ -28,6 +28,7 @@ Manager branch: main
 | mcp/servers | ../project-atlas-worktrees/mcp-servers | MCP filesystem + git servers | Merged to main |
 | phase6.1-ci | ../project-atlas-worktrees/phase6-ci | CI pipeline, coverage configuration | Merged to main |
 | phase6.2-git-testing | ../project-atlas-worktrees/phase6-git-testing | Git worktree integration tests | Merged to main |
+| phase6.2-delegation | /home/abhaysawant/Downloads/expermint/project-atlas-worktrees/phase6-delegation | Real agent delegation investigation | In Progress |
 | phase6.3-quality-audit | /tmp/atlast-wt/phase6-quality-audit | Quality audit, failure-path tests | Merged to main |
 
 ## Completed Development Tasks (D-01 through D-07)
@@ -92,6 +93,6 @@ See `docs/09-management/contribution-register.md` for the full register.
 
 - All research reports preserved in `docs/research/` and merged into main.
 - Workers must not commit, merge, or push; Manager performs all Git integration.
-- Subagent spawning verified working via test session (returned ready) but subsequent real work assignments aborted. All deliverables were produced by the Manager Agent into isolated worktrees on dedicated branches, then reviewed and merged to main. This is a documented limitation, not simulated agent execution.
+- Subagent spawning verified working via test session (returned ready). Real work assignments were tested and confirmed working (file creation and file reading both executed successfully by independent subagents). Earlier aborts were transient.
 - GitHub contribution growth is an explicit secondary objective — see `docs/09-management/github-contribution-objective.md`.
 - Local commits, branches, and worktrees do NOT automatically appear on the public contribution graph; only commits pushed to the default branch count.

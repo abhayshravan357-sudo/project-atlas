@@ -26,9 +26,11 @@ Columns:
 | 2026-10-31 | test | tests/test_git_integration.py | No integration tests against real git existed | Added 12 integration tests using real temporary repositories and worktrees (isolation, cleanup, main-worktree protection) | — | phase6.2-git-testing merge | 12 tests pass | How git worktrees behave under real git operations |
 | 2026-10-31 | test | tests/test_quality_audit.py | No failure-path or integration coverage existed | Added failure-path tests (blocked commits, empty domains, invalid repo), CLI integration tests, MCP integration tests (initialize/tools-list/unknown-tool) | — | phase6.3-quality-audit merge | 9 tests pass | How to test CLI invocation and MCP JSON-RPC round-trips |
 
+| 2026-10-31 | investigation | docs/09-management/, tests/ | Subagent delegation appeared unavailable | Tested `task` tool with real work assignments (file read, file write); both succeeded. Earlier aborts were transient. | — | — | 2 test delegations confirmed | Subagent delegation via `task` tool is available; no manual-manager fallback needed |
+
 ## Contribution Totals (as of last update)
 
-- Total contribution entries: 8
+- Total contribution entries: 9
 - Feature commits: 3 (orchestrator, CLI, MCP servers)
 - Documentation commits: 3 (vision/requirements, technology, architecture)
 - CI commits: 1
