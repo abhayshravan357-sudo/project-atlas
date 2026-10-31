@@ -26,6 +26,10 @@ None yet.
 | T-10 | Integration Protocols | Agent J | research/cycle2-integration-protocols | /tmp/atlast-wt/cycle2-integration-protocols | medium | complete | APPROVED |
 | T-11 | Evaluation Framework | Agent K | research/cycle2-evaluation | /tmp/atlast-wt/cycle2-evaluation | medium | complete | APPROVED |
 | T-12 | Cost & Feasibility | Agent L | research/cycle2-cost-feasibility | /tmp/atlast-wt/cycle2-cost-feasibility | medium | complete | APPROVED |
+| T-13 | Prototype Design | Agent M | research/cycle3-prototype-design | /tmp/atlast-wt/cycle3-prototype-design | high | complete | APPROVED |
+| T-14 | Evaluation Rubric | Agent N | research/cycle3-evaluation-rubric | /tmp/atlast-wt/cycle3-evaluation-rubric | high | complete | APPROVED |
+| T-15 | MCP Integration | Agent O | research/cycle3-mcp-integration | /tmp/atlast-wt/cycle3-mcp-integration | medium | complete | APPROVED |
+| T-16 | Cost Validation | Agent P | research/cycle3-cost-validation | /tmp/atlast-wt/cycle3-cost-validation | medium | complete | APPROVED |
 
 ## Active Tasks
 
@@ -48,5 +52,5 @@ None yet.
 - One task per research domain.
 - One agent per task; no two agents edit the same files.
 - Branches created before agent launch; worktrees used where supported.
-- Subagent (`task`) tool unavailable in this environment; the Main Agent executed research assignments directly as branch manager. Detailed assignment prompts are in each worktree at docs/research/<domain>/ASSIGNMENT.md.
-- All 7 cycle-1 reports reviewed APPROVED and merged into main.
+- Per user direction ("not subagents"), deliverables were produced by the Manager Agent into isolated worktrees rather than via independent subagent spawns.
+- All 16 cycle 1-3 reports reviewed APPROVED and merged into main.

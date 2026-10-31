@@ -35,11 +35,30 @@ Key cycle 2 findings:
 - LLM-as-judge + human review is the recommended evaluation model
 - Cost is feasible at small/medium scale with mitigation strategies
 
-## Cycle 3+ — Validation & Direction (Future)
+## Cycle 3 — Prototype Design & Validation (Complete)
 
-- Feasibility prototype of orchestrator-worker + git worktree model
-- Evaluation rubric implementation and testing
-- MCP server prototype for agent tool access
-- Cost model validation with real LLM usage
-- Architecture commitment decision
-- Go / no-go on implementation
+Objective: Validate the core architecture and cost model with concrete designs.
+
+Assignments completed (4):
+1. Agent M — Prototype design: LangGraph orchestrator-worker graph + git worktree manager + human-in-the-loop review gate specified
+2. Agent N — Evaluation rubric: 6-dimension rubric (accuracy 25%, completeness 20%, source quality 20%, synthesis 15%, classification 10%, citation 10%), LLM-as-judge prompt, hybrid human+automated model
+3. Agent O — MCP integration: filesystem/git/search/LLM/knowledge-base MCP servers; stdio+HTTP transport; worktree-scoped sandboxing
+4. Agent P — Cost validation: real provider pricing; small/medium/large cost estimates; cost mitigation strategies; break-even vs manual research
+
+Status: All 4 reports reviewed APPROVED, merged into `main`.
+
+Key cycle 3 findings:
+- Prototype: LangGraph StateGraph with plan/delegate/investigate/report/synthesize/review/commit nodes; LangGraph interrupt for manager review
+- Rubric: weighted 0.0-1.0 scoring with 0.75 pass threshold; LLM-as-judge + human manager gate
+- MCP: 5 servers (filesystem, git, search, LLM, KB); stdio for local, HTTP for remote; worktree-scoped sandboxing
+- Cost: small cycle ~$45-$210 depending on model; break-even favors Atlas at small/medium scale
+
+## Cycle 4 — Prototype Implementation (Planned)
+
+Objective: Build and validate a working prototype.
+
+Planned assignments:
+1. Prototype implementation: worktree manager + LangGraph orchestrator skeleton
+2. Rubric calibration: test LLM-as-judge against human judgments on sample reports
+3. MCP build: filesystem + git servers scoped to worktrees
+4. Cost measurement: run prototype cycle, measure real token usage
