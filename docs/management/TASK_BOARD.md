@@ -21,8 +21,17 @@ None yet.
 | T-05 | Academic Literature | Agent E | research/academic-literature | /tmp/atlast-wt/academic-literature | medium | complete | APPROVED |
 | T-06 | Innovation Exploration | Agent F | research/innovation | /tmp/atlast-wt/innovation | medium | complete | APPROVED |
 | T-07 | Critical Analysis | Agent G | research/critical-analysis | /tmp/atlast-wt/critical-analysis | high | complete | APPROVED |
+| T-08 | Architecture Deep-Dive | Agent H | research/cycle2-architecture | /tmp/atlast-wt/cycle2-architecture | high | complete | APPROVED |
+| T-09 | Technology Comparison | Agent I | research/cycle2-technology-comparison | /tmp/atlast-wt/cycle2-technology-comparison | high | complete | APPROVED |
+| T-10 | Integration Protocols | Agent J | research/cycle2-integration-protocols | /tmp/atlast-wt/cycle2-integration-protocols | medium | complete | APPROVED |
+| T-11 | Evaluation Framework | Agent K | research/cycle2-evaluation | /tmp/atlast-wt/cycle2-evaluation | medium | complete | APPROVED |
+| T-12 | Cost & Feasibility | Agent L | research/cycle2-cost-feasibility | /tmp/atlast-wt/cycle2-cost-feasibility | medium | complete | APPROVED |
 
-## Blocked Tasks
+## Active Tasks
+
+None yet.
+
+## Pending Tasks
 
 None yet.
 
