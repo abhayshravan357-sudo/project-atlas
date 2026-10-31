@@ -59,9 +59,9 @@ class WorktreeManager:
         except subprocess.CalledProcessError:
             return False
 
-    def create_branch(self, branch: str) -> None:
-        """Create a new branch from the current main HEAD."""
-        self._run(["branch", branch], cwd=self.repo_root)
+    def create_branch(self, branch: str, from_branch: str = "main") -> None:
+        """Create a new branch from ``from_branch`` (default: main)."""
+        self._run(["branch", branch, from_branch], cwd=self.repo_root)
 
     def create_worktree(self, domain: str, branch: str) -> Path:
         """Create a worktree for ``domain`` on ``branch``.
